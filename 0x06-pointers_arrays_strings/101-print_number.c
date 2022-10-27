@@ -1,35 +1,34 @@
 #include "main.h"
-#include <stdio.h>
-
+void print_unsigned_int(unsigned int n);
 /**
- * print_number - function prints an integer
+ * print_number - print number n with putchar
  *
- *@n: integer
+ * @n: number to print
  *
- * Return: nothing
+ * Return: always void
  */
-
 void print_number(int n)
 {
-	int y = 1000000000;
-	int x, z;
-
-	for (x = 0; x < 10; x++)
+	if (n < 0)
 	{
-		if ((n / y) == 0 && z == 0)
-		{
-			y = (y / 10);
-			continue;
-		}
-		else if (z == 0)
-		{
-			_putchar((n / y) + '0');
-			z++;
-		}
-		else
-		{
-			_putchar ((n / y) % 10 + '0');
-		}
-		y = (y / 10);
+		_putchar('-');
+		print_unsigned_int(-(unsigned int)n);
 	}
+	else
+		print_unsigned_int(n);
+}
+/**
+ * print_unsigned_int - prints an unsigned integer
+ *
+ * @n: an unsigned integer to print
+ *
+ * Return: always void
+ */
+void print_unsigned_int(unsigned int n)
+{
+	if (n / 10 != 0)
+	{
+		print_unsigned_int(n / 10);
+	}
+	_putchar((n % 10) + '0');
 }
