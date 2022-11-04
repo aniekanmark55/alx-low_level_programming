@@ -1,3 +1,3 @@
 *.c
 *.o
--puchar.c
+_putchar.*
